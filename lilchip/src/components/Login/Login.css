@@ -1,12 +1,15 @@
 .container{
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: auto;
   margin-top: 200px;
   background: #fff;
-  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 25px;
   overflow: hidden;
   width: 300px;
+  border-radius: 20px;
 }
 
 .header{
@@ -21,10 +24,46 @@
 .input{
     display: flex;
     align-items: center;
+    border: transparent;
+}
+
+.input input{
+    background: #eaeaea;
+    border: transparent;
+    border-radius: 15px;
+    padding-left: 10px;
 }
 
 .text{
     color: black;
     font-size: 16;
     font: bold;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.buttons{
+    display: flex;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+.button{
+    display: flex;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.button:hover{
+    background-color: #eaeaea;
+}
+
+.back{
+    background-color: #1b2339;
+    color: white;
+}
+
+.login{
+    background-color: #00ffe5;
+    color: black;
 }

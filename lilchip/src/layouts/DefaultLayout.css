@@ -1,0 +1,16 @@
+.credits{
+    display: flex;
+    flex: row;
+    width: 28px;
+    height: 28px;
+    padding: 15px;
+}
+
+.text-white{
+    padding-left: 10px;
+    color: white;
+    font-size: 16;
+    font: bold;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}

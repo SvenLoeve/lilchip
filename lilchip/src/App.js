@@ -1,10 +1,13 @@
 import "./App.css";
 import Login from "./components/Login/Login";
+import DefaultLayout from "./layouts/DefaultLayout";
 
 function App() {
   return (
     <div>
-      <Login />
+      <DefaultLayout>
+        <Login />
+      </DefaultLayout>
     </div>
   );
 }

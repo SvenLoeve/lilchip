@@ -17,8 +17,8 @@ const Login = () => {
                 <input type='password' placeholder='Password' />
             </div>
             <div className='buttons'>
-                <button>cancel</button>
-                <button>Login</button>
+                <button className='button back'>cancel</button>
+                <button className='button login'>Login</button>
             </div>
         </div>
     );
