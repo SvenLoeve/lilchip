@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './Login.css'
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+function Login() {
     const [input, setInput] = useState({
         username: "",
         password: "",
     });
+
+    const navigate = useNavigate()
 
     const [errors, setErrors] = useState({});
 
@@ -27,6 +30,8 @@ const Login = () => {
                 username: "",
                 password: ""
             });
+
+            navigate("/chip-scan")
 
             alert("Logged in")
         }
@@ -56,6 +61,10 @@ const Login = () => {
         return isValid
     }
 
+    const handleLogin = () => {
+
+    }
+
     return (
         <form className='container' onSubmit={handleSubmit}>
             <div className='header'>
@@ -73,7 +82,7 @@ const Login = () => {
             </div>
             <div className='buttons'>
                 <button className='button back'>cancel</button>
-                <button className='button login' value="Submit">Login</button>
+                <button className='button login' value="Submit" onClick={handleLogin}>Login</button>
             </div>
         </form>
     );
