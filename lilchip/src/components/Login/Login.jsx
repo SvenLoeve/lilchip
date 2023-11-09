@@ -17,8 +17,47 @@ const Login = () => {
         })
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        if (validate()) {
+            console.log(input);
+
+            setInput({
+                username: "",
+                password: ""
+            });
+
+            alert("Logged in")
+        }
+    }
+
+    const validate = () => {
+        const newErrors = {};
+        let isValid = true;
+
+        if (!input.username) {
+            isValid = false;
+            newErrors.username = "Please enter your username.";
+        } else if (input.username.length < 5 || !/^\S*$/.test(input.username)) {
+            isValid = false;
+            newErrors.username = "Please enter valid username.";
+        }
+
+        if (!input.password) {
+            isValid = false;
+            newErrors.password = "Please enter your password.";
+        } else if (input.password.length < 6) {
+            isValid = false;
+            newErrors.password = "Please add at least 6 characters.";
+        }
+
+        setErrors(newErrors);
+        return isValid
+    }
+
     return (
-        <div className='container'>
+        <form className='container' onSubmit={handleSubmit}>
             <div className='header'>
                 <div className='text'>Log in</div>
             </div>
@@ -30,12 +69,13 @@ const Login = () => {
             </div>
             <div className='input'>
                 <input type='password' name='password' value={input.password} onChange={handlechange} placeholder='Password' />
+                <div className='text danger'>{errors.password}</div>
             </div>
             <div className='buttons'>
                 <button className='button back'>cancel</button>
-                <button className='button login'>Login</button>
+                <button className='button login' value="Submit">Login</button>
             </div>
-        </div>
+        </form>
     );
 }
 

@@ -12,6 +12,11 @@
   border-radius: 20px;
 }
 
+.form{
+    display: flex;
+    align-items: center;
+}
+
 .header{
     display: flex;
     flex-direction: column;
@@ -23,6 +28,7 @@
 
 .input{
     display: flex;
+    flex-direction: column;
     align-items: center;
     border: transparent;
 }
@@ -46,6 +52,7 @@
     display: flex;
     gap: 20px;
     padding-top: 10px;
+
 }
 
 .button{
@@ -66,4 +73,9 @@
 .login{
     background-color: #00ffe5;
     color: black;
+}
+
+.danger{
+    font-size: 12;
+    color: red;
 }
