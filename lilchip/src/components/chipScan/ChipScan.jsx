@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import "./ChipScan.css";
 import axios from "axios";
+
+import ScanIcon from "./ScanIcon.svg";
 
 const ChipScan = () => {
 
@@ -20,8 +23,9 @@ const ChipScan = () => {
     }
 
     return (
-        <div>
-            <button onClick={handleGetData}>SCAN</button>
+        <div className="containerChipScan">
+            <img src={ScanIcon} alt="ScanIcon" />
+            <button className="button-blue" onClick={handleGetData}>Scan</button>
         </div>
     )
 }

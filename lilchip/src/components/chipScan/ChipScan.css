@@ -1,0 +1,20 @@
+.containerChipScan{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    width: 970px;
+    height: 370px;
+    border-radius: 20px;
+}
+
+.button-blue{
+    display: flex;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #00ffe5;
+    color: black;
+    font: bold;
+    text-transform: uppercase;
+}

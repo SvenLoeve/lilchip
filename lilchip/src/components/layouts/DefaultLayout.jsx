@@ -4,7 +4,7 @@ import Logo from "./lilchipLogo.png";
 
 export default function DefaultLayout({ children, }) {
     return (
-        <div >
+        <div className="background">
             <div className="credits">
                 <img src={Logo} alt="Lilchip Logo"></img>
                 <div className="text-white">Li'lchip</div>

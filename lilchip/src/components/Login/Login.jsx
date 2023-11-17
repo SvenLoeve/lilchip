@@ -82,7 +82,7 @@ function Login() {
             </div>
             <div className='buttons'>
                 <button className='button back'>cancel</button>
-                <button className='button login' value="Submit" onClick={handleLogin}>Login</button>
+                <button className='button blue' value="Submit" onClick={handleLogin}>Login</button>
             </div>
         </form>
     );

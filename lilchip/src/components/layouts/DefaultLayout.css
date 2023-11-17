@@ -1,9 +1,21 @@
+.background{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient( #2464BF, #00FFE5);
+    width: 100vw;
+    height: 100vh;
+}
+
 .credits{
+    position: absolute;
     display: flex;
     flex: row;
     width: 28px;
     height: 28px;
     padding: 15px;
+    top: 0;
+    left: 0;
 }
 
 .text-white{
