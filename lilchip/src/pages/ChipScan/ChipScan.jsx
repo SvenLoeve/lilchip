@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ChipScan.css";
 import axios from "axios";
 
-import ScanIcon from "./ScanIcon.svg";
+import ScanIcon from "../../assets/images/scanIcon.svg";
 
 const ChipScan = () => {
 

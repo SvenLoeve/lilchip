@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DefaultLayout from "./components/layouts/DefaultLayout";
-import Login from "./components/login/Login";
-import ChipScan from "./components/chipScan/ChipScan";
+import DefaultLayout from "./components/DefaultLayout/DefaultLayout";
+import Login from "./pages/Login/Login";
+import ChipScan from "./pages/ChipScan/ChipScan";
 
 function App() {
   return (

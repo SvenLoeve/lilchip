@@ -1,6 +1,6 @@
 import React from "react";
 import "./DefaultLayout.css"
-import Logo from "./lilchipLogo.png";
+import Logo from "../../assets/images/lilchipLogo.png";
 
 export default function DefaultLayout({ children, }) {
     return (
