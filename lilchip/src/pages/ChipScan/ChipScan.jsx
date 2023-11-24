@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import "./ChipScan.css";
+
+import "../../components/Button/Button"
+
 import axios from "axios";
 
 import ScanIcon from "../../assets/images/scanIcon.svg";
+import Button from "../../components/Button/Button";
 
 const ChipScan = () => {
 
@@ -22,12 +26,22 @@ const ChipScan = () => {
 
     }
 
-    return (
-        <div className="containerChipScan">
-            <img src={ScanIcon} alt="ScanIcon" />
-            <button className="button-blue" onClick={handleGetData}>Scan</button>
-        </div>
-    )
+    if (data == null) {
+        return (
+            <div className="containerChipScan">
+                <img src={ScanIcon} alt="ScanIcon" />
+                <Button onClick={handleGetData} label="Scan chip" variant="1" />
+            </div>
+        )
+    }
+    else {
+        return (
+            <div className="containerChipScan">
+                <text>{data}</text>
+            </div>
+        )
+    }
+
 }
 
 export default ChipScan

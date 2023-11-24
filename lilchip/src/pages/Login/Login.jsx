@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './Login.css'
 import { useNavigate } from 'react-router-dom';
 
+import Button from '../../components/Button/Button';
+
 function Login() {
     const [input, setInput] = useState({
         username: "",
@@ -81,8 +83,8 @@ function Login() {
                 <div className='text danger'>{errors.password}</div>
             </div>
             <div className='buttons'>
-                <button className='button back'>cancel</button>
-                <button className='button blue' value="Submit" onClick={handleLogin}>Login</button>
+                <Button onClick={handleLogin} label="cancel" variant="3" />
+                <Button onClick={handleLogin} label="Login" variant="2" />
             </div>
         </form>
     );
