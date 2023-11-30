@@ -13,21 +13,7 @@ import Button from "../../components/Button/Button";
 
 const ChipScan = () => {
 
-    const [data, setData] = useState("");
-
-    //dummy data
-    // const [data, setData] = useState({
-    //     name: "Joe",
-    //     lastName: "Momma",
-    //     dateOfBirth: "04-20-1969",
-    //     placeOfResidence: "Utrecht",
-    //     phoneNumber: "06-96969696",
-    //     emergencyContact: "Harry Styles",
-    //     emergencyContactNumber: "06-96969420",
-    //     alergies: "Deez nuts",
-    //     medication: "Da weed",
-    //     implants: "Cyberpunk"
-    // });
+    const [data, setData] = useState(null);
 
 
     const API_URL = "http://127.0.0.1:5000/api/v1/read_physical_chip_data?apikey=fe593a02b73346f4b5608ce8ec2d2f89";
@@ -37,23 +23,22 @@ const ChipScan = () => {
             .get(API_URL)
             .then(response => {
                 setData(response.data);
-                console.log(data)
+                console.log(response.data);
             })
             .catch(error => {
-                console.error("Error:", error)
-                alert("Error, no chip found")
+                console.error("Error:", error);
             });
     }
 
-    if (data === "") {
+
+    if (data === null) {
         return (
             <div className="container ChipScan">
                 <img src={ScanIcon} alt="ScanIcon" />
                 <Button onClick={handleGetData} label="Scan chip" variant="1" />
             </div>
         )
-    }
-    else {
+    } else {
         return (
             <div className="container ChipScan">
                 <div className="container PersonalInformation">
@@ -65,9 +50,8 @@ const ChipScan = () => {
                 </div>
                 <div className="container ContactInformation">
                     <text className="text-bold">Contact information</text>
-                    <text><span className="text-bold">Phone number: </span>{data.phoneNumber}</text>
                     <text><span className="text-bold">Emergency contact: </span>{data.emergencyContact}</text>
-                    <text><span className="text-bold">PhoneNumber: </span>{data.emergencyContactNumber}</text>
+                    <text><span className="text-bold">Phone number: </span>{data.emergencyContactNumber}</text>
                 </div>
                 <div className="container Allergies">
                     <text className="text-bold">Allergies</text>
