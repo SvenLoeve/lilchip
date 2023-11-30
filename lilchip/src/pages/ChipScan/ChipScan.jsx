@@ -13,21 +13,21 @@ import Button from "../../components/Button/Button";
 
 const ChipScan = () => {
 
-    // const [data, setData] = useState(null);
+    const [data, setData] = useState(null);
 
     //dummy data
-    const [data, setData] = useState({
-        name: "Joe",
-        lastName: "Momma",
-        dateOfBirth: "04-20-1969",
-        placeOfResidence: "Utrecht",
-        phoneNumber: "06-96969696",
-        emergencyContact: "Harry Styles",
-        emergencyContactNumber: "06-96969420",
-        alergies: "Deez nuts",
-        medication: "Da weed",
-        implants: "Cyberpunk"
-    });
+    // const [data, setData] = useState({
+    //     name: "Joe", 
+    //     lastName: "Momma", 
+    //     dateOfBirth: "04-20-1969",
+    //     placeOfResidence: "Utrecht",
+    //     phoneNumber: "06-96969696",
+    //     emergencyContact: "Harry Styles",
+    //     emergencyContactNumber: "06-96969420",
+    //     alergies: "Deez nuts",
+    //     medication: "Da weed",
+    //     implants: "Cyberpunk"
+    // });
 
 
     const API_URL = "http://127.0.0.1:5000/api/v1/read_physical_chip_data?apikey=fe593a02b73346f4b5608ce8ec2d2f89";
@@ -48,7 +48,7 @@ const ChipScan = () => {
 
     if (data == null) {
         return (
-            <div className="containerChipScan">
+            <div className="container ChipScan">
                 <img src={ScanIcon} alt="ScanIcon" />
                 <Button onClick={handleGetData} label="Scan chip" variant="1" />
             </div>
