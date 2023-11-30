@@ -6,7 +6,10 @@ import "../../components/Button/Button"
 import axios from "axios";
 
 import ScanIcon from "../../assets/images/scanIcon.svg";
+import ProfileIcon from "../../assets/images/profileIconBeta.svg"
+
 import Button from "../../components/Button/Button";
+
 
 const ChipScan = () => {
 
@@ -53,29 +56,30 @@ const ChipScan = () => {
     }
     else {
         return (
-            <div className="containerChipScan">
-                <div className="containerPersonalInformation">
-                    <text>Name: {data.name}</text>
-                    <text>Last name: {data.lastName}</text>
-                    <text>Date of birth: {data.dateOfBirth}</text>
-                    <text>Place of residence: {data.placeOfResidence}</text>
+            <div className="container ChipScan">
+                <div className="container PersonalInformation">
+                    <img src={ProfileIcon} alt="ProfileIcon" />
+                    <text><span className="text-bold">Name: </span> {data.name}</text>
+                    <text><span className="text-bold">Last name: </span>{data.lastName}</text>
+                    <text><span className="text-bold">Date of birth: </span>{data.dateOfBirth}</text>
+                    <text><span className="text-bold">Place of residence: </span>{data.placeOfResidence}</text>
                 </div>
-                <div className="containerContactInformation">
-                    <text>Contact information</text>
-                    <text>Phone number {data.phoneNumber}</text>
-                    <text>Emergency contact {data.emergencyContact}</text>
-                    <text>PhoneNumber {data.emergencyContactNumber}</text>
+                <div className="container ContactInformation">
+                    <text className="text-bold">Contact information</text>
+                    <text><span className="text-bold">Phone number: </span>{data.phoneNumber}</text>
+                    <text><span className="text-bold">Emergency contact: </span>{data.emergencyContact}</text>
+                    <text><span className="text-bold">PhoneNumber: </span>{data.emergencyContactNumber}</text>
                 </div>
-                <div className="containerAllergies">
-                    <text>Allergies</text>
+                <div className="container Allergies">
+                    <text className="text-bold">Allergies</text>
                     <text>{data.alergies}</text>
                 </div>
-                <div className="containerMedication">
-                    <text>Medication</text>
+                <div className="container Medication">
+                    <text className="text-bold">Medication</text>
                     <text>{data.medication}</text>
                 </div>
-                <div className="containerImplants">
-                    <text>Implants</text>
+                <div className="container Implants">
+                    <text className="text-bold">Implants</text>
                     <text>{data.implants}</text>
                 </div>
             </div>
