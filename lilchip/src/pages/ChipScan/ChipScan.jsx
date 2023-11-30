@@ -13,12 +13,12 @@ import Button from "../../components/Button/Button";
 
 const ChipScan = () => {
 
-    const [data, setData] = useState(null);
+    const [data, setData] = useState("");
 
     //dummy data
     // const [data, setData] = useState({
-    //     name: "Joe", 
-    //     lastName: "Momma", 
+    //     name: "Joe",
+    //     lastName: "Momma",
     //     dateOfBirth: "04-20-1969",
     //     placeOfResidence: "Utrecht",
     //     phoneNumber: "06-96969696",
@@ -43,10 +43,9 @@ const ChipScan = () => {
                 console.error("Error:", error)
                 alert("Error, no chip found")
             });
-
     }
 
-    if (data == null) {
+    if (data === "") {
         return (
             <div className="container ChipScan">
                 <img src={ScanIcon} alt="ScanIcon" />
