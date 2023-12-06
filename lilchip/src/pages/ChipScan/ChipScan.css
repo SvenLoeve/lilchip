@@ -3,11 +3,10 @@
   flex-direction: column;
   border-radius: 20px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-  align-items: start;
   padding: 30px;
 }
 
-.ChipScan {
+.chipScan {
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
@@ -18,28 +17,28 @@
   height: 600px;
 }
 
-.PersonalInformation {
+.personalInformation {
   background: #d9d9d9;
   width: 250px;
   height: 300px;
   padding: 10px;
 }
 
-.ContactInformation {
+.contactInformation {
   background: #d9d9d9;
   width: 250px;
   height: 200px;
   padding: 10px;
 }
 
-.Allergies {
+.allergies {
   background: #d9d9d9;
   width: 750px;
   height: 150px;
   padding: 10px;
 }
 
-.Medication {
+.medication {
   flex-direction: column;
   background: #d9d9d9;
   width: 750px;
@@ -47,7 +46,7 @@
   padding: 10px;
 }
 
-.Implants {
+.implants {
   flex-direction: column;
   background: #d9d9d9;
   width: 750px;

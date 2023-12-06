@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import './Login.css'
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "./Login.css"
+import { useNavigate } from "react-router-dom";
 
-import Button from '../../components/Button/Button';
+import Button from "../../components/Button/Button";
 
 function Login() {
     const [input, setInput] = useState({
@@ -68,21 +68,21 @@ function Login() {
     }
 
     return (
-        <form className='container' onSubmit={handleSubmit}>
-            <div className='header'>
-                <div className='text'>Log in</div>
+        <form className="container login" onSubmit={handleSubmit}>
+            <div className="header">
+                <div className="text">Log in</div>
             </div>
-            <div className='input'>
-                <input type='text' name='username' value={input.username} onChange={handlechange} placeholder='Username' />
+            <div className="input">
+                <input type="text" name="username" value={input.username} onChange={handlechange} placeholder="Username" />
             </div>
-            <div className='header'>
-                <div className='text'>Password</div>
+            <div className="header">
+                <div className="text">Password</div>
             </div>
-            <div className='input'>
-                <input type='password' name='password' value={input.password} onChange={handlechange} placeholder='Password' />
-                <div className='text danger'>{errors.password}</div>
+            <div className="input">
+                <input type="password" name="password" value={input.password} onChange={handlechange} placeholder="Password" />
+                <div className="text danger">{errors.password}</div>
             </div>
-            <div className='buttons'>
+            <div className="buttons">
                 <Button onClick={handleLogin} label="cancel" variant="3" />
                 <Button onClick={handleLogin} label="Login" variant="2" />
             </div>
