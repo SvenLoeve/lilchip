@@ -1,28 +1,30 @@
-.background{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient( #2464BF, #00FFE5);
-    width: 100vw;
-    height: 100vh;
+.background {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#2464bf, #00ffe5);
+  gap: 0px;
+  width: 100vw;
+  height: 100vh;
 }
 
-.credits{
-    position: absolute;
-    display: flex;
-    flex: row;
-    width: 28px;
-    height: 28px;
-    padding: 15px;
-    top: 0;
-    left: 0;
+.credits {
+  position: absolute;
+  display: flex;
+  flex: row;
+  width: 28px;
+  height: 28px;
+  padding: 15px;
+  top: 0;
+  left: 0;
 }
 
-.text-white{
-    padding-left: 10px;
-    color: white;
-    font-size: 16;
-    font: bold;
-    padding-bottom: 5px;
-    text-transform: uppercase;
+.text-white {
+  padding-left: 10px;
+  color: white;
+  font-size: 16;
+  font: bold;
+  padding-bottom: 5px;
+  text-transform: uppercase;
 }

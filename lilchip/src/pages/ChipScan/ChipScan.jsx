@@ -10,7 +10,6 @@ import ProfileIcon from "../../assets/images/profileIconBeta.svg"
 
 import Button from "../../components/Button/Button";
 
-
 const ChipScan = () => {
 
     const [data, setData] = useState(null);
@@ -33,9 +32,11 @@ const ChipScan = () => {
 
     if (data === null) {
         return (
-            <div className="container chipScan">
-                <img src={ScanIcon} alt="ScanIcon" />
-                <Button onClick={handleGetData} label="Scan chip" variant="1" />
+            <div className="test">
+                <div className="container chipScan">
+                    <img src={ScanIcon} alt="ScanIcon" />
+                    <Button onClick={handleGetData} label="Scan chip" variant="1" />
+                </div>
             </div>
         )
     } else {

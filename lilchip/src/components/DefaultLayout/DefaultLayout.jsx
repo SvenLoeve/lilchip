@@ -9,7 +9,7 @@ export default function DefaultLayout({ children, }) {
                 <img src={Logo} alt="Lilchip Logo"></img>
                 <div className="text-white">Li'lchip</div>
             </div>
-            <main>{children}</main>
+            {children}
         </div>
 
     )
