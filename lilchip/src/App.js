@@ -1,9 +1,12 @@
 import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
 import DefaultLayout from "./components/DefaultLayout/DefaultLayout";
 import NavBar from "./components/NavBar/NavBar";
+
 import Login from "./pages/Login/Login";
 import ChipScan from "./pages/ChipScan/ChipScan";
+import ClientList from "./pages/ClientList/ClientList";
 
 function App() {
   const router = createBrowserRouter([
@@ -21,6 +24,15 @@ function App() {
         <DefaultLayout>
           <NavBar />
           <ChipScan />
+        </DefaultLayout>
+      ),
+    },
+    {
+      path: "/client-list",
+      element: (
+        <DefaultLayout>
+          <NavBar />
+          <ClientList />
         </DefaultLayout>
       ),
     },

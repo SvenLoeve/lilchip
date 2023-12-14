@@ -1,24 +1,30 @@
 .custom-button {
   cursor: pointer;
   border-radius: 10px;
+  padding: 5px 10px;
   border-color: transparent;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
 }
 
 .button-variant-1 {
   background-color: #00ffe5;
-  padding: 5px 10px;
   font-weight: bold;
   font-size: 16pt;
 }
 
 .button-variant-2 {
   background-color: #00ffe5;
-  padding: 5px 10px;
 }
 
 .button-variant-3 {
   background-color: black;
-  padding: 5px 10px;
   color: white;
+}
+
+.button-variant-4 {
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  font-size: 16pt;
+  width: 200px;
 }

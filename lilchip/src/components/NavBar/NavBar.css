@@ -1,11 +1,12 @@
 .container-NavBar {
   display: flex;
+  flex: flex-end;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   border-radius: 20px 0px 0px 20px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-  height: 600px;
+  height: 80vh;
   width: 200px;
   padding: 30px;
   background-color: #1b2339;

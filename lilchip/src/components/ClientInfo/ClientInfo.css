@@ -1,0 +1,8 @@
+.clientInfo {
+  display: flex;
+  align-items: start;
+  flex: start;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: lightgray;
+}

@@ -32,12 +32,13 @@ const ChipScan = () => {
 
     if (data === null) {
         return (
-            <div className="test">
+            <div>
                 <div className="container chipScan">
                     <img src={ScanIcon} alt="ScanIcon" />
                     <Button onClick={handleGetData} label="Scan chip" variant="1" />
                 </div>
             </div>
+
         )
     } else {
         return (

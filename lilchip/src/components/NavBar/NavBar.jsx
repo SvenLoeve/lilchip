@@ -1,36 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./NavBar.css"
 import Button from "../Button/Button";
-import { useNavigate, Link } from "react-router-dom";
 
 const NavBar = () => {
 
-    // useEffect = (() => {
-    //     console.log("Dit zuigt")
-    // }, [])
-
-    // const navigate = useNavigate();
-
-
-    // const handleNavigate = (route) => {
-    //     navigate(route)
-    //     console.log("Sven doe is leuk")
-    // }
 
 
 
     return (
-        <nav>
-            <div className="container-NavBar">
-                {/* <button onClick={handleNavigate("/")}> Je moeder</button>
-            <Button onClick={handleNavigate("/")} label="Je moeder" variant="1" />
-            <Button label="Je moeder" variant="1" />
-            <Button label="Je moeder" variant="1" /> */}
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-            </div>
-        </nav>
+        <div className="container-NavBar">
+            <Button label="Return to login" variant="4" route={"/"} />
+            <Button label="Scan chip" variant="4" route={"/chip-scan"} />
+            <Button label="Client list" variant="4" route={"/client-list"} />
+        </div>
     )
 
 };
