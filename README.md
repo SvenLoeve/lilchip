@@ -1,2 +1,2 @@
-# MindFit
-This is the git repository for the HU applied universities Mindfit project.
+# LPLink
+This is the git repository for the HU applied universities LPLink project.
