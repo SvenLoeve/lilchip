@@ -1,0 +1,5 @@
+Flask==2.3.3
+
+
+
+http://127.0.0.1:5000/api/v1/read_physical_chip_data?apikey=fe593a02b73346f4b5608ce8ec2d2f89
