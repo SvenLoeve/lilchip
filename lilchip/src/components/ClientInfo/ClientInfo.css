@@ -1,8 +1,17 @@
 .clientInfo {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
+  justify-content: space-between;
   flex: start;
+  gap: 10px;
   border-radius: 20px;
   padding: 10px;
   background-color: lightgray;
+  width: 1000px;
+}
+
+.infoItem {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }

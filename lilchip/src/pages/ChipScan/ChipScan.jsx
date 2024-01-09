@@ -42,30 +42,32 @@ const ChipScan = () => {
         )
     } else {
         return (
-            <div className="container chipScan">
-                <div className="container personalInformation">
-                    <img src={ProfileIcon} alt="ProfileIcon" />
-                    <text><span className="text-bold">Name: </span> {data.name}</text>
-                    <text><span className="text-bold">Last name: </span>{data.lastName}</text>
-                    <text><span className="text-bold">Date of birth: </span>{data.dateOfBirth}</text>
-                    <text><span className="text-bold">Place of residence: </span>{data.placeOfResidence}</text>
-                </div>
-                <div className="container contactInformation">
-                    <text className="text-bold">Contact information</text>
-                    <text><span className="text-bold">Emergency contact: </span>{data.emergencyContact}</text>
-                    <text><span className="text-bold">Phone number: </span>{data.emergencyContactNumber}</text>
-                </div>
-                <div className="container allergies">
-                    <text className="text-bold">Allergies</text>
-                    <text>{data.alergies}</text>
-                </div>
-                <div className="container medication">
-                    <text className="text-bold">Medication</text>
-                    <text>{data.medication}</text>
-                </div>
-                <div className="container implants">
-                    <text className="text-bold">Implants</text>
-                    <text>{data.implants}</text>
+            <div>
+                <div className="container chipScan">
+                    <div className="container personalInformation">
+                        <img src={ProfileIcon} alt="ProfileIcon" />
+                        <text><span className="text-bold">Name: </span> {data.name}</text>
+                        <text><span className="text-bold">Last name: </span>{data.lastName}</text>
+                        <text><span className="text-bold">Date of birth: </span>{data.dateOfBirth}</text>
+                        <text><span className="text-bold">Place of residence: </span>{data.placeOfResidence}</text>
+                    </div>
+                    <div className="container contactInformation">
+                        <text className="text-bold">Contact information</text>
+                        <text><span className="text-bold">Emergency contact: </span>{data.emergencyContact}</text>
+                        <text><span className="text-bold">Phone number: </span>{data.emergencyContactNumber}</text>
+                    </div>
+                    <div className="container allergies">
+                        <text className="text-bold">Allergies</text>
+                        <text>{data.alergies}</text>
+                    </div>
+                    <div className="container medication">
+                        <text className="text-bold">Medication</text>
+                        <text>{data.medication}</text>
+                    </div>
+                    <div className="container implants">
+                        <text className="text-bold">Implants</text>
+                        <text>{data.implants}</text>
+                    </div>
                 </div>
             </div>
         )
