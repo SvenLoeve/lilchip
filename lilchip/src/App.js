@@ -38,14 +38,13 @@ function App() {
       ),
     },
     {
-      path: "/client-page/:userId",
+      path: "/client-page/:clientId",
       element: (
         <DefaultLayout>
           <NavBar />
           <ClientPage />
         </DefaultLayout>
       ),
-      children: [<ClientPage key="client-page" />],
     },
   ]);
   return <RouterProvider router={router} />;
