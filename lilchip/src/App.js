@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Login from "./pages/Login/Login";
 import ChipScan from "./pages/ChipScan/ChipScan";
 import ClientList from "./pages/ClientList/ClientList";
+import ClientPage from "./pages/ClientPage/ClientPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -35,6 +36,16 @@ function App() {
           <ClientList />
         </DefaultLayout>
       ),
+    },
+    {
+      path: "/client-page/:userId",
+      element: (
+        <DefaultLayout>
+          <NavBar />
+          <ClientPage />
+        </DefaultLayout>
+      ),
+      children: [<ClientPage key="client-page" />],
     },
   ]);
   return <RouterProvider router={router} />;
