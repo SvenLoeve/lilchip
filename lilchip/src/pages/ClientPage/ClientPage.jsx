@@ -37,15 +37,18 @@ const ClientPage = () => {
                 </div>
                 <div className="container allergies">
                     <text className="text-bold">Allergies</text>
+                    <text>{userInfo.Allergies}</text>
                 </div>
                 <div className="container medication">
                     <text className="text-bold">Medication</text>
+                    <text>{userInfo.Medications}</text>
                 </div>
                 <div className="container implants">
                     <text className="text-bold">Implants</text>
+                    <text>{userInfo.Implants}</text>
                 </div>
             </div>) : (
-                <p>loading...</p>
+                <div className="container chipScan"><p>loading...</p></div>
             )}
         </div>
     )
