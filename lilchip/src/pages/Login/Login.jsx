@@ -12,7 +12,7 @@ function Login() {
 
     const navigate = useNavigate()
 
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState([]);
 
     const handlechange = (event) => {
         const { name, value } = event.target;
@@ -22,22 +22,6 @@ function Login() {
         })
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-
-        if (validate()) {
-            console.log(input);
-
-            setInput({
-                username: "",
-                password: ""
-            });
-
-            navigate("/chip-scan")
-
-            alert("Logged in")
-        }
-    }
 
     const validate = () => {
         const newErrors = {};
@@ -46,7 +30,7 @@ function Login() {
         if (!input.username) {
             isValid = false;
             newErrors.username = "Please enter your username.";
-        } else if (input.username.length < 5 || !/^\S*$/.test(input.username)) {
+        } else if (input.username.length < 6 || !/^\S*$/.test(input.username)) {
             isValid = false;
             newErrors.username = "Please enter valid username.";
         }
@@ -63,17 +47,31 @@ function Login() {
         return isValid
     }
 
-    const handleLogin = () => {
+    const handleLogin = (event) => {
+        event.preventDefault();
 
+        if (validate()) {
+            console.log(input);
+
+            setInput({
+                username: "",
+                password: ""
+            });
+
+            navigate("/chip-scan")
+
+            alert("Logged in")
+        }
     }
 
     return (
-        <form className="container login" onSubmit={handleSubmit}>
+        <div className="container login">
             <div className="header">
                 <div className="text">Log in</div>
             </div>
             <div className="input">
                 <input type="text" name="username" value={input.username} onChange={handlechange} placeholder="Username" />
+                <div className="text danger">{errors.username}</div>
             </div>
             <div className="header">
                 <div className="text">Password</div>
@@ -86,7 +84,7 @@ function Login() {
                 <Button onClick={handleLogin} label="cancel" variant="3" />
                 <Button onClick={handleLogin} label="Login" variant="2" />
             </div>
-        </form>
+        </div>
     );
 }
 
