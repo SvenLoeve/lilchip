@@ -34,7 +34,8 @@ const AddClient = () => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(inputData),
-            })
+            },
+                alert("Client added"))
         } catch (error) {
             console.error("Failed to add user")
         }
