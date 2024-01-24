@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Login.css"
 import { useNavigate } from "react-router-dom";
+import axios from "axios"
 
 import Button from "../../components/Button/Button";
 
-function Login() {
+const Login = () => {
+
     const [input, setInput] = useState({
         username: "",
         password: "",
@@ -23,34 +25,46 @@ function Login() {
     }
 
 
-    const validate = () => {
+    const validate = async () => {
         const newErrors = {};
         let isValid = true;
 
-        if (!input.username) {
-            isValid = false;
-            newErrors.username = "Please enter your username.";
-        } else if (input.username.length < 6 || !/^\S*$/.test(input.username)) {
-            isValid = false;
-            newErrors.username = "Please enter valid username.";
-        }
+        try {
+            const response = await axios.post("http://localhost:5000/login", input)
 
-        if (!input.password) {
+            if (response.status === 200) {
+                if (!input.username) {
+                    isValid = false;
+                    newErrors.username = "Please enter your username.";
+                } else if (input.username.length < 6) {
+                    isValid = false;
+                    newErrors.username = "Please enter valid username.";
+                }
+
+                if (!input.password) {
+                    isValid = false;
+                    newErrors.password = "Please enter your password.";
+                } else if (input.password.length < 6) {
+                    isValid = false;
+                    newErrors.password = "Please add at least 6 characters.";
+                }
+            } else {
+                isValid = false
+                newErrors.password = "Invalid credentials"
+            }
+        } catch (error) {
             isValid = false;
-            newErrors.password = "Please enter your password.";
-        } else if (input.password.length < 6) {
-            isValid = false;
-            newErrors.password = "Please add at least 6 characters.";
+            newErrors.password = "Error during login"
         }
 
         setErrors(newErrors);
         return isValid
     }
 
-    const handleLogin = (event) => {
+    const handleLogin = async (event) => {
         event.preventDefault();
 
-        if (validate()) {
+        if (await validate()) {
             console.log(input);
 
             setInput({
