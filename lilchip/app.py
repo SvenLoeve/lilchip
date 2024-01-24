@@ -73,6 +73,7 @@ def login():
                 return jsonify({"message" : "Login succesful"}), 200
         
             else:
+                
                 return jsonify({"error": "Invalid credentials"}), 400
         
     except Exception as e:

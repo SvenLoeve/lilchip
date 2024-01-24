@@ -6,6 +6,7 @@ import axios from "axios"
 import Button from "../../components/Button/Button";
 
 const Login = () => {
+    // const { setAuth } = useContext(AuthContext);
 
     const [input, setInput] = useState({
         username: "",
@@ -14,7 +15,7 @@ const Login = () => {
 
     const navigate = useNavigate()
 
-    const [errors, setErrors] = useState([]);
+    const [error, setError] = useState("");
 
     const handlechange = (event) => {
         const { name, value } = event.target;
@@ -26,38 +27,27 @@ const Login = () => {
 
 
     const validate = async () => {
-        const newErrors = {};
         let isValid = true;
+        setError("")
 
         try {
             const response = await axios.post("http://localhost:5000/login", input)
 
-            if (response.status === 200) {
-                if (!input.username) {
-                    isValid = false;
-                    newErrors.username = "Please enter your username.";
-                } else if (input.username.length < 6) {
-                    isValid = false;
-                    newErrors.username = "Please enter valid username.";
-                }
-
-                if (!input.password) {
-                    isValid = false;
-                    newErrors.password = "Please enter your password.";
-                } else if (input.password.length < 6) {
-                    isValid = false;
-                    newErrors.password = "Please add at least 6 characters.";
-                }
-            } else {
+            if (response.status !== 200) {
                 isValid = false
-                newErrors.password = "Invalid credentials"
+                setError("Invalid credentials")
             }
+
         } catch (error) {
+            if (!input.username | !input.password) {
+                setError("Please fill in all fields");
+            } else {
+                setError("Incorrect username or password");
+            }
+
             isValid = false;
-            newErrors.password = "Error during login"
         }
 
-        setErrors(newErrors);
         return isValid
     }
 
@@ -65,7 +55,6 @@ const Login = () => {
         event.preventDefault();
 
         if (await validate()) {
-            console.log(input);
 
             setInput({
                 username: "",
@@ -85,18 +74,19 @@ const Login = () => {
             </div>
             <div className="input">
                 <input type="text" name="username" value={input.username} onChange={handlechange} placeholder="Username" />
-                <div className="text danger">{errors.username}</div>
             </div>
             <div className="header">
                 <div className="text">Password</div>
             </div>
             <div className="input">
                 <input type="password" name="password" value={input.password} onChange={handlechange} placeholder="Password" />
-                <div className="text danger">{errors.password}</div>
             </div>
             <div className="buttons">
                 <Button onClick={handleLogin} label="cancel" variant="3" />
                 <Button onClick={handleLogin} label="Login" variant="2" />
+            </div>
+            <div className="error-message">
+                {error && <div className="text danger">{error}</div>}
             </div>
         </div>
     );
