@@ -25,7 +25,7 @@ const ClientPage = () => {
 
     return (
         <div>
-            {userInfo ? (<div className="container chipScan">
+            {userInfo ? (<div className="container userInfo">
                 <div className="container personalInformation">
                     <img src={ProfileIcon} alt="ProfileIcon" />
                     <text><span className="text-bold">Name: </span> {userInfo.Name}</text>

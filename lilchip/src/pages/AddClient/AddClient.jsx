@@ -47,7 +47,7 @@ const AddClient = () => {
         <div>
             <div className="container addClient">
                 <div className="container clientInfoInput">
-                    <div className="container personalInformation">
+                    <div className="container personalInformationInput">
                         <img src={ProfileIcon} alt="ProfileIcon" />
                         <text><span className="text-bold">Name: </span><input name="Name" value={inputData.nameInput} onChange={handleChange}></input></text>
                         {/* <text><span className="text-bold">Date of birth: </span><input name="DateOfBirth" value={inputData.dateOfBirthInput} onChange={handleChange}></input></text> */}
@@ -63,11 +63,11 @@ const AddClient = () => {
                     </div>
                     <div className="container medication">
                         <text className="text-bold">Medication</text>
-                        <input name="Medications" value={inputData.medicationInput} onChange={handleChange}></input>
+                        <input name="Medications" value={inputData.medicationsInput} onChange={handleChange}></input>
                     </div>
                     <div className="container implants">
                         <text className="text-bold">Implants</text>
-                        <input name="Implants" value={inputData.implantsInput} onChange={handleChange}></input>
+                        <input className="allergiesInput" name="Implants" value={inputData.implantsInput} onChange={handleChange}></input>
                     </div>
 
                 </div>
