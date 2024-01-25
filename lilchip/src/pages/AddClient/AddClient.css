@@ -72,3 +72,7 @@
 .buttons {
   height: 30px;
 }
+
+input {
+  border-radius: 20px;
+}
