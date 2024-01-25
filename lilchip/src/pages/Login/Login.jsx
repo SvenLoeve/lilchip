@@ -1,12 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "./Login.css"
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
 
-import Button from "../../components/Button/Button";
+import Button from "../../components/Button/Button.jsx";
 
 const Login = () => {
-    // const { setAuth } = useContext(AuthContext);
+
 
     const [input, setInput] = useState({
         username: "",
