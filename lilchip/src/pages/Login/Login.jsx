@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./Login.css"
 import { useNavigate } from "react-router-dom";
+import axios from "axios"
 
-import Button from "../../components/Button/Button";
+import Button from "../../components/Button/Button.jsx";
 
-function Login() {
+const Login = () => {
+
+
     const [input, setInput] = useState({
         username: "",
         password: "",
@@ -12,7 +15,7 @@ function Login() {
 
     const navigate = useNavigate()
 
-    const [errors, setErrors] = useState([]);
+    const [error, setError] = useState("");
 
     const handlechange = (event) => {
         const { name, value } = event.target;
@@ -23,35 +26,35 @@ function Login() {
     }
 
 
-    const validate = () => {
-        const newErrors = {};
+    const validate = async () => {
         let isValid = true;
+        setError("")
 
-        if (!input.username) {
+        try {
+            const response = await axios.post("http://localhost:5000/login", input)
+
+            if (response.status !== 200) {
+                isValid = false
+                setError("Invalid credentials")
+            }
+
+        } catch (error) {
+            if (!input.username | !input.password) {
+                setError("Please fill in all fields");
+            } else {
+                setError("Incorrect username or password");
+            }
+
             isValid = false;
-            newErrors.username = "Please enter your username.";
-        } else if (input.username.length < 6 || !/^\S*$/.test(input.username)) {
-            isValid = false;
-            newErrors.username = "Please enter valid username.";
         }
 
-        if (!input.password) {
-            isValid = false;
-            newErrors.password = "Please enter your password.";
-        } else if (input.password.length < 6) {
-            isValid = false;
-            newErrors.password = "Please add at least 6 characters.";
-        }
-
-        setErrors(newErrors);
         return isValid
     }
 
-    const handleLogin = (event) => {
+    const handleLogin = async (event) => {
         event.preventDefault();
 
-        if (validate()) {
-            console.log(input);
+        if (await validate()) {
 
             setInput({
                 username: "",
@@ -71,18 +74,19 @@ function Login() {
             </div>
             <div className="input">
                 <input type="text" name="username" value={input.username} onChange={handlechange} placeholder="Username" />
-                <div className="text danger">{errors.username}</div>
             </div>
             <div className="header">
                 <div className="text">Password</div>
             </div>
             <div className="input">
                 <input type="password" name="password" value={input.password} onChange={handlechange} placeholder="Password" />
-                <div className="text danger">{errors.password}</div>
             </div>
             <div className="buttons">
                 <Button onClick={handleLogin} label="cancel" variant="3" />
                 <Button onClick={handleLogin} label="Login" variant="2" />
+            </div>
+            <div className="error-message">
+                {error && <div className="text danger">{error}</div>}
             </div>
         </div>
     );

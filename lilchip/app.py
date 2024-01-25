@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify, session
 import mysql.connector
 from datetime import datetime
 
 app = Flask(__name__)
+
+app.secret_key = 'your_secret_key_here'
 
 # MySQL configurations
 mysql_config = {
@@ -53,11 +55,40 @@ def get_users():
         return jsonify({'error': str(e)}), 500
 
 
-@app.route('/delete_user/<int:user_id>', methods=['DELETE'])
-def delete_user(user_id):
+# Hidde wrote this next part of the code, he is a FE so dont judge.
+@app.route("/login", methods=["POST"])
+def login(): 
     try:
+        data = request.json
+        username = data.get("username")
+        password = data.get("password")
+        
+        with connection.cursor(dictionary=True) as cursor:
+            cursor.execute("SELECT * FROM Users WHERE Username = %s AND Password = %s", (username, password))
+            print(cursor._executed)
+            user = cursor.fetchone()
+            
+            if user:
+                session["username"] = user["Username"]
+                return jsonify({"message" : "Login succesful"}), 200
+        
+            else:
+                
+                return jsonify({"error": "Invalid credentials"}), 400
+        
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+
+
+@app.route('/delete_user', methods=['DELETE'])
+def delete_user():
+    try:
+        user_id = request.args.get('user_id')
         with connection.cursor() as cursor:
-            cursor.execute('DELETE FROM Users WHERE UserID = %s', (user_id,))
+            delete_query = 'DELETE FROM Users WHERE UserID = %s'
+            cursor.execute(delete_query, (user_id,))
             connection.commit()
 
         return jsonify({'message': 'User deleted successfully'}), 200
