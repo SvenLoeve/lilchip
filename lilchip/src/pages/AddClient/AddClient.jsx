@@ -25,7 +25,6 @@ const AddClient = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(inputData)
 
         try {
             fetch("http://localhost:5000/add_personal_info", {
@@ -39,6 +38,11 @@ const AddClient = () => {
         } catch (error) {
             console.error("Failed to add user")
         }
+
+    }
+
+    const handleWrite = async (e) => {
+        e.preventDefault();
 
     }
 
@@ -73,7 +77,9 @@ const AddClient = () => {
                 </div>
                 <div className="buttons">
                     <Button label="Cancel" />
-                    <Button label="Add client" onClick={handleSubmit} /></div>
+                    <Button label="Add client" onClick={handleSubmit} />
+                    <Button label="Write to chip" onClick={handleWrite} />
+                </div>
 
             </div>
         </div>
